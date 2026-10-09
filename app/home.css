@@ -1,0 +1,710 @@
+/* Home: one record, nine scenes. Every scene is ordinary HTML; the record and the scroll
+   choreography sit on top and can be switched off without losing a word (Design: rules 1 to 3). */
+
+main.home {
+  position: relative;
+  z-index: 3;
+  --stage-h: 40vh;
+  --stage-now: var(--stage-h);
+}
+@supports (height: 1svh) {
+  main.home {
+    --stage-h: 40svh;
+  }
+}
+
+/* The header floats over the record on the home page. */
+body:has(> main.home) .top {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+body:has(> main.home) .top::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 -1.25rem;
+  z-index: -1;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-mask: linear-gradient(#000 62%, transparent);
+  mask: linear-gradient(#000 62%, transparent);
+  pointer-events: none;
+}
+
+/* Fixed layers: ground (0), stage with the record (1), sleeve (2), content (3) */
+.home .ground {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: var(--brick);
+  clip-path: circle(0px at 72% 50%);
+  pointer-events: none;
+}
+.home .sleeve {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 52vw;
+  background: var(--sleeve);
+  border-right: 1px solid var(--rule);
+  transition: background-color 0.35s;
+  will-change: transform;
+  pointer-events: none;
+  -webkit-mask: radial-gradient(circle 46px at 100% 50%, transparent 45px, #000 46px);
+  mask: radial-gradient(circle 46px at 100% 50%, transparent 45px, #000 46px);
+}
+.home .stage {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 56vw;
+  height: 100vh;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+@supports (height: 1dvh) {
+  .home .stage {
+    height: 100dvh;
+  }
+}
+.stage-inner {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+.stage canvas,
+.poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.stage canvas {
+  visibility: hidden;
+}
+body.gl-on .stage canvas {
+  visibility: visible;
+}
+body.gl-on .poster {
+  visibility: hidden;
+}
+.poster .lb,
+body.side-b .poster .la {
+  display: none;
+}
+body.side-b .poster .lb {
+  display: block;
+}
+.pause {
+  position: fixed;
+  z-index: 5;
+  right: clamp(16px, 3vw, 40px);
+  top: calc(env(safe-area-inset-top, 0px) + 4.75rem);
+  background: var(--ground);
+}
+
+/* Content */
+.home .scene {
+  position: relative;
+  z-index: 3;
+}
+.home .col {
+  width: 52vw;
+  padding: 0 clamp(24px, 5vw, 84px);
+}
+.home .hold {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#arrival {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 4.5rem;
+}
+#drop {
+  height: 160vh;
+}
+#side-a {
+  height: 420vh;
+}
+#matcha {
+  height: 170vh;
+}
+#flip {
+  height: 140vh;
+}
+#wall {
+  height: 260vh;
+}
+#room {
+  height: 160vh;
+}
+#story {
+  height: 160vh;
+}
+#visit {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7rem 0 4rem;
+}
+
+.home h1,
+.home .display {
+  font-size: clamp(2.9rem, 6.4vw, 7rem);
+  line-height: 0.92;
+  margin-bottom: 1.5rem;
+}
+.home h1 span,
+.home .display span {
+  display: block;
+  white-space: nowrap;
+}
+.home h1 .kicker {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-stretch: 100%;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--crema);
+}
+body.side-b .home h1 .kicker {
+  color: var(--crema-ink);
+}
+.home .lede {
+  max-width: 34rem;
+}
+.home .body {
+  max-width: 33rem;
+}
+.home .body + .body,
+.home .lede + .body {
+  margin-top: 1rem;
+}
+.where {
+  margin-top: 1.4rem;
+  font-size: 1rem;
+}
+.cue {
+  margin-top: 2.2rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+html.still .cue-motion,
+html:not(.js) .cue-motion {
+  display: none;
+}
+
+/* Side A: the tracklist */
+.tracks {
+  list-style: none;
+  margin: 1.3rem 0 1.1rem;
+  padding: 0;
+  max-width: 35rem;
+}
+.tracks li {
+  border-top: 1px solid var(--rule);
+  transition: opacity 0.3s;
+}
+.tracks li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.track {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 2.4rem 1fr auto;
+  align-items: baseline;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+.track:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.track:hover .name,
+.track:focus-visible .name {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+.track .n {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.track .name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  line-height: 1.15;
+}
+.track .price {
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.detail {
+  margin: 0;
+  padding: 0 0 0.65rem 2.9rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+html.js:not(.still) .tracks li {
+  opacity: 0.5;
+}
+html.js:not(.still) .tracks li.on,
+html.js:not(.still) .tracks li:hover,
+html.js:not(.still) .tracks li:focus-within {
+  opacity: 1;
+}
+html.js:not(.still) .detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  padding-bottom: 0;
+  transition:
+    grid-template-rows 0.3s var(--ease),
+    padding-bottom 0.3s var(--ease);
+}
+html.js:not(.still) .detail > span {
+  overflow: hidden;
+}
+html.js:not(.still) li.on .detail,
+html.js:not(.still) li:focus-within .detail {
+  grid-template-rows: 1fr;
+  padding-bottom: 0.65rem;
+}
+.dots {
+  display: none;
+}
+
+/* Matcha */
+.pours {
+  list-style: none;
+  margin: 1.3rem 0 0;
+  padding: 0;
+  max-width: 35rem;
+  columns: 2;
+  column-gap: 2rem;
+}
+.pours li {
+  break-inside: avoid;
+  padding: 0.35rem 0;
+  border-top: 1px solid var(--rule);
+}
+.pours .name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  display: block;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.pours .name:hover {
+  text-decoration: underline;
+}
+.pours .with {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* The wall */
+.wide {
+  padding: 0 clamp(24px, 6vw, 96px);
+}
+#wall .hold {
+  justify-content: flex-start;
+  padding-top: 6.5rem;
+  overflow: hidden;
+}
+#wall .wide {
+  margin-bottom: 2rem;
+  max-width: 52rem;
+}
+.track-x {
+  display: flex;
+  gap: clamp(24px, 4vw, 64px);
+  padding: 0 clamp(24px, 6vw, 96px);
+  will-change: transform;
+  width: max-content;
+}
+.frame {
+  flex: none;
+  width: min(60vw, 300px);
+  margin: 0;
+}
+.art {
+  aspect-ratio: 4 / 5;
+  border: 10px solid var(--brew);
+  background: var(--white);
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The room */
+#room .hold {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 6vw;
+  padding: 0 clamp(24px, 6vw, 96px);
+}
+.stairs {
+  display: flex;
+  align-items: flex-end;
+  height: min(48vh, 380px);
+  max-width: 520px;
+  width: 100%;
+  justify-self: center;
+}
+.step {
+  flex: 1;
+  height: calc(var(--k) / 6 * 100%);
+  background: var(--c);
+  transform-origin: 50% 100%;
+}
+
+/* Liner notes */
+#story .hold {
+  padding: 0 clamp(24px, 6vw, 96px);
+}
+.route-x {
+  position: relative;
+  margin-top: 2.4rem;
+  padding-top: 2.4rem;
+  max-width: 68rem;
+}
+.route-x::before,
+.route-line {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0.45rem;
+  height: 2px;
+  background: var(--rule);
+}
+.route-line {
+  background: var(--ink);
+  transform-origin: 0 50%;
+}
+html.still .route-line,
+html:not(.js) .route-line {
+  transform: none !important;
+}
+.stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+.stops li {
+  position: relative;
+}
+.stops li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -2.4rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--ground);
+  border: 2px solid var(--ink);
+  transition: background-color 0.3s;
+}
+.stops li.on::before,
+html.still .stops li::before,
+html:not(.js) .stops li::before {
+  background: var(--ink);
+}
+.after {
+  margin-top: 2.2rem;
+  max-width: 40rem;
+}
+
+/* Visit */
+#visit .facts {
+  max-width: 34rem;
+}
+.coming {
+  margin-top: 1.6rem;
+}
+.coming ul {
+  margin: 0.3rem 0 0;
+  padding-left: 1.1rem;
+}
+.more {
+  margin-top: 1.4rem;
+}
+
+/* Footer on the home page stays inside the sleeve column on wide screens. */
+body:has(> main.home) .foot {
+  z-index: 4;
+}
+
+/* Desktop: the body shows Brew; the ground layer wipes Brick white in at the flip. */
+@media (min-width: 900px) {
+  body:has(> main.home) {
+    background: var(--brew);
+  }
+}
+
+/* Phones and small tablets: record on top, sleeve below */
+@media (max-width: 899px) {
+  main.home .ground,
+  main.home .sleeve {
+    display: none;
+  }
+  .home .stage {
+    left: 0;
+    right: 0;
+    width: auto;
+    height: var(--stage-h);
+    z-index: 4;
+    background: var(--ground);
+    border-bottom: 1px solid var(--rule);
+    transition:
+      background-color 0.35s,
+      opacity 0.3s;
+    will-change: transform;
+  }
+  /* On phones the pause control sits in the record's own panel and leaves with it. */
+  .pause {
+    top: calc(var(--stage-now) - 3.1rem);
+    right: 0.75rem;
+    min-height: 36px;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.85rem;
+  }
+  body.badge-on .pause {
+    visibility: hidden;
+  }
+  .home .col {
+    width: auto;
+  }
+  .home .hold {
+    top: var(--stage-now);
+    height: calc(100vh - var(--stage-now) - var(--bar-h));
+    padding-top: 1rem;
+  }
+  #arrival {
+    min-height: 100vh;
+    justify-content: flex-start;
+    padding-top: calc(var(--stage-h) + 1.75rem);
+    padding-bottom: 6rem;
+  }
+  #visit {
+    padding-top: calc(var(--stage-h) + 2rem);
+  }
+  .home h1,
+  .home .display {
+    font-size: clamp(2.6rem, 14vw, 5rem);
+  }
+  .home .lede {
+    font-size: 1.05rem;
+  }
+  html.js:not(.still) .tracks li:not(.on) {
+    display: none;
+  }
+  html.js:not(.still) .tracks li {
+    border-bottom: 1px solid var(--rule);
+  }
+  html.js:not(.still) .dots {
+    display: flex;
+    gap: 0.45rem;
+    margin: 0.7rem 0 1rem;
+  }
+  .dots span {
+    width: 1.6rem;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--rule);
+  }
+  .dots span.on {
+    background: var(--ink);
+  }
+  .pours {
+    columns: 1;
+  }
+  .pours li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.22rem 0;
+  }
+  .pours .name {
+    font-size: 1.05rem;
+  }
+  #wall {
+    height: auto;
+    padding: 5rem 0 3rem;
+  }
+  #wall .hold {
+    position: static;
+    height: auto;
+    padding-top: 0;
+    overflow: visible;
+  }
+  .track-x {
+    transform: none !important;
+    width: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .frame {
+    scroll-snap-align: center;
+    width: 72vw;
+  }
+  #room .hold {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    align-content: center;
+    padding-top: 4.5rem;
+  }
+  .stairs {
+    height: 14vh;
+    order: -1;
+    max-width: 300px;
+    justify-self: start;
+  }
+  #story {
+    height: auto;
+    padding: 5rem 0 3rem;
+  }
+  #story .hold {
+    position: static;
+    height: auto;
+  }
+  .route-x {
+    margin-top: 1.6rem;
+    padding: 0 0 0 2rem;
+  }
+  .route-x::before,
+  .route-line {
+    left: 0.45rem;
+    right: auto;
+    top: 0.3rem;
+    bottom: 0.3rem;
+    width: 2px;
+    height: auto;
+  }
+  .route-line {
+    transform-origin: 50% 0;
+  }
+  .stops {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+  .stops li::before {
+    left: -2rem;
+    top: 0.3rem;
+  }
+}
+@supports (height: 1svh) {
+  @media (max-width: 899px) {
+    .home .hold {
+      height: calc(100svh - var(--stage-now) - var(--bar-h));
+    }
+  }
+}
+
+/* Still level (M2, M3): reduced motion, motion switched off, or no scripts.
+   Same words, normal page flow, one poster record. */
+html.still body:has(> main.home),
+html:not(.js) body:has(> main.home) {
+  background: var(--ground);
+}
+html.still .home .ground,
+html:not(.js) .home .ground {
+  display: none;
+}
+html.still .stage canvas {
+  display: none;
+}
+html.still .poster {
+  visibility: visible !important;
+}
+html.still .home .hold,
+html:not(.js) .home .hold {
+  position: static;
+  height: auto;
+  padding-top: 0;
+}
+html.still .home .scene,
+html:not(.js) .home .scene {
+  height: auto !important;
+  min-height: 0;
+  padding: 5.5rem 0;
+}
+html.still #arrival,
+html:not(.js) #arrival {
+  min-height: 100vh;
+  padding: 4.5rem 0 0;
+}
+html.still .track-x,
+html:not(.js) .track-x {
+  transform: none !important;
+  width: auto;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+}
+html.still .step {
+  transform: none !important;
+}
+html.still body.badge-on .home .stage,
+html.still body.badge-on .home .sleeve {
+  opacity: 0;
+}
+html.still .home .sleeve {
+  transition:
+    background-color 0.35s,
+    opacity 0.3s;
+}
+html.still .pause {
+  display: none;
+}
+@media (max-width: 899px) {
+  html.still #arrival,
+  html:not(.js) #arrival {
+    padding-top: calc(var(--stage-h) + 1.75rem);
+  }
+  html.still .home .scene,
+  html:not(.js) .home .scene {
+    padding: 3.5rem 0;
+  }
+  html:not(.js) .home .stage {
+    position: absolute;
+  }
+}
+@media (min-width: 900px) {
+  html:not(.js) .home .stage,
+  html:not(.js) .home .sleeve {
+    position: absolute;
+    height: 100vh;
+  }
+}

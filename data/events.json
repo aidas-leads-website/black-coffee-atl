@@ -1,0 +1,4 @@
+{
+  "_help": "Add one object per event. Dates are ISO 8601 in Atlanta time, e.g. 2026-11-14T19:00:00-05:00. Past events stay listed under 'Past'. Example: {\"name\": \"Listening party: ...\", \"start\": \"2026-11-14T19:00:00-05:00\", \"end\": \"2026-11-14T22:00:00-05:00\", \"description\": \"...\", \"performer\": \"DJ ...\", \"url\": \"https://...\"}",
+  "events": []
+}

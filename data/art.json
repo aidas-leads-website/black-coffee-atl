@@ -1,0 +1,7 @@
+{
+  "_help": "The art wall. Set currentShow to an object once a show is confirmed: {\"title\": \"...\", \"artist\": \"...\", \"artistUrl\": \"https://...\", \"start\": \"2026-10-01\", \"end\": \"2026-12-31\", \"statement\": \"...\", \"works\": [{\"title\": \"...\", \"medium\": \"...\", \"image\": \"/art/....avif\", \"width\": 1200, \"height\": 1500}]}. Move a finished show into archive.",
+  "curator": "Brit Sade",
+  "submissions": "westside@blackcoffeeatl.com",
+  "currentShow": null,
+  "archive": []
+}

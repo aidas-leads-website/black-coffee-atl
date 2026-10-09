@@ -1,0 +1,149 @@
+{
+  "updated": "2026-10-06",
+  "source": "Square ordering site, blackcoffeeatl.square.site",
+  "sections": [
+    {
+      "id": "signature-lattes",
+      "name": "Signature lattes",
+      "kind": "signature latte",
+      "intro": "House lattes built on espresso and house-made syrups. Hot or iced unless noted.",
+      "items": [
+        { "name": "Marleaux, My Love", "ingredients": ["honey", "caramel", "vanilla", "espresso", "milk"], "price": 7.5, "from": true, "color": "#D9A441" },
+        { "name": "Brown Sugar Baby", "ingredients": ["brown butter toffee", "coconut", "white chocolate", "espresso", "milk"], "price": 8, "from": true, "color": "#A9713F" },
+        { "name": "Dear Mama", "ingredients": ["caramel", "mocha", "toffee nut", "espresso", "milk", "salt"], "price": 8, "from": true, "color": "#7A4630" },
+        { "name": "Lavender & Chill", "ingredients": ["lavender", "vanilla", "espresso", "milk"], "price": 7, "from": true, "color": "#9A86C8" },
+        { "name": "You Bring Me Joy", "ingredients": ["caramel", "white mocha", "brown sugar", "espresso", "steamed milk"], "price": 8, "from": true, "color": "#E3C9A0" },
+        { "name": "Carl's Coffee Soda", "kind": "signature coffee soda", "ingredients": ["espresso", "cola", "lemon"], "note": "Iced only", "price": 7.25, "from": true, "color": "#D8C24A" },
+        { "name": "Bre's Cinnamon Chai Latte", "kind": "signature chai latte", "ingredients": ["cold brew", "chai", "cinnamon", "oat milk"], "price": 7.25, "from": true },
+        { "name": "A Sweet Love", "ingredients": null, "price": 7, "from": true }
+      ]
+    },
+    {
+      "id": "matcha",
+      "name": "Matcha",
+      "kind": "ceremonial-grade matcha drink",
+      "intro": "Ceremonial-grade matcha, whisked to order and served with milk or lemonade.",
+      "items": [
+        { "name": "Toni's Spicy Mama Matcha Lemonade", "kind": "matcha lemonade", "ingredients": ["Toni's Spicy Mama mango sauce", "matcha", "mango", "lemonade"], "price": 8.5, "from": true },
+        { "name": "The Blueprint", "flavor": "Blueberry", "ingredients": ["matcha", "blueberry", "milk or lemonade"], "price": 7, "from": true },
+        { "name": "Purple Kisses", "flavor": "Lavender", "ingredients": ["matcha", "lavender", "milk or lemonade"], "price": 7, "from": true },
+        { "name": "The Pretty in Pink", "flavor": "Strawberry", "ingredients": ["matcha", "strawberry", "milk"], "price": 7, "from": true },
+        { "name": "The Beautiful", "flavor": "Peach", "ingredients": ["matcha", "peach", "milk or lemonade"], "price": 7, "from": true },
+        { "name": "The Cali Dream", "flavor": "Mango", "ingredients": ["matcha", "mango", "milk or lemonade"], "price": 7, "from": true },
+        { "name": "In Love with the Coco", "flavor": "Coconut", "ingredients": ["matcha", "coconut syrup", "milk or lemonade"], "price": 7, "from": true },
+        { "name": "Matcha Latte", "kind": "ceremonial-grade matcha latte", "ingredients": ["matcha", "milk"], "price": 7, "from": true }
+      ]
+    },
+    {
+      "id": "seasonal",
+      "name": "Seasonal and specials",
+      "kind": "seasonal drink",
+      "intro": "Drinks that rotate with the season. Ask at the counter what is pouring today.",
+      "items": [
+        { "name": "I Need a Soldier", "ingredients": ["vanilla", "matcha", "milk", "espresso"], "note": "Hot or iced", "price": 8.5, "from": true },
+        { "name": "Seeing Green", "ingredients": ["matcha", "lime", "coconut", "sparkling water"], "price": 8.5, "from": true },
+        { "name": "Sunny", "ingredients": ["orange juice", "vanilla", "cold brew", "salted cold foam"], "note": "Iced only", "price": 8.25, "from": true },
+        { "name": "Burning Blue", "kind": "shaken cold brew", "ingredients": ["blueberry", "brown sugar", "toffee nut", "cold brew"], "price": 8, "from": true },
+        { "name": "Oooh La La La", "ingredients": ["strawberry or peach puree", "vanilla", "espresso", "milk", "graham cracker crumbs"], "price": 7.5, "from": true },
+        { "name": "Sweet Nuthins", "ingredients": ["matcha", "thyme", "peach", "steamed milk"], "price": 7, "from": true },
+        { "name": "Golden Thyme of Day", "ingredients": ["turmeric", "spices", "thyme", "steamed milk"], "price": 6.5, "from": true },
+        { "name": "Three Little Birds", "kind": "tropical fruit infusion", "ingredients": ["cidron", "papaya", "uchuva", "guanabana", "lemon"], "price": null, "available": false }
+      ]
+    },
+    {
+      "id": "espresso",
+      "name": "Classic espresso",
+      "kind": "espresso drink",
+      "intro": "Espresso and drip coffee from Devoción, Onyx and Counter Culture.",
+      "items": [
+        { "name": "Latte", "ingredients": ["espresso", "steamed milk", "optional syrup"], "price": 6, "from": true },
+        { "name": "Cappuccino", "ingredients": ["espresso", "milk", "extra foam"], "price": 5.25 },
+        { "name": "Flat White", "ingredients": ["espresso", "steamed milk"], "price": 5 },
+        { "name": "Cortado", "sentence": "Cortado is equal parts espresso and steamed milk, $4.50." , "ingredients": null, "price": 4.5 },
+        { "name": "Americano", "sentence": "Americano is one part espresso, or matcha, to two parts water, from $4.00.", "ingredients": null, "price": 4, "from": true },
+        { "name": "Espresso", "kind": "espresso shot", "ingredients": null, "price": 3.75 },
+        { "name": "Drip Coffee", "kind": "batch-brewed coffee", "ingredients": null, "price": 3.5 }
+      ]
+    },
+    {
+      "id": "iced",
+      "name": "Iced only",
+      "kind": "iced drink",
+      "intro": "Served over ice.",
+      "items": [
+        { "name": "Cold Brew", "ingredients": ["cold brew", "milk"], "price": 6.5, "from": true },
+        { "name": "Remember the Thyme", "kind": "lemonade", "ingredients": ["lemonade", "thyme syrup"], "price": 6.5, "from": true },
+        { "name": "Lemonade", "sentence": "Lemonade is house lemonade with a syrup of your choice, from $6.00.", "ingredients": null, "price": 6, "from": true },
+        { "name": "Fruit Smoothies", "sentence": "Fruit Smoothies come in strawberry, mango, peach and pina colada, currently unavailable.", "ingredients": null, "price": null, "available": false }
+      ]
+    },
+    {
+      "id": "tea",
+      "name": "Tea and chai",
+      "kind": "tea",
+      "intro": "Chai lattes, loose-leaf teas and caffeine-free herbal blends.",
+      "items": [
+        { "name": "Wildflower", "kind": "chai latte", "ingredients": ["chai", "espresso", "rose", "milk"], "price": 7.5, "from": true },
+        { "name": "Chai Tea Latte", "kind": "chai latte", "ingredients": ["spiced tea", "milk", "microfoam"], "price": 7, "from": true },
+        { "name": "Chamomile Medley", "kind": "caffeine-free herbal tea", "ingredients": ["chamomile", "lemongrass", "spearmint", "lemon verbena"], "price": 5.5 },
+        { "name": "Blueberry Hibiscus", "kind": "caffeine-free herbal tea", "ingredients": ["rooibos", "hibiscus", "elderberry", "blueberry"], "price": 5 },
+        { "name": "Turmeric Ginger", "kind": "caffeine-free herbal tea", "ingredients": ["ginger", "turmeric", "licorice root", "lemongrass", "citrus peel"], "price": 5 },
+        { "name": "Peppermint", "kind": "caffeine-free herbal tea", "ingredients": null, "price": 5 },
+        { "name": "Earl Grey", "kind": "black tea", "ingredients": ["black tea", "bergamot"], "price": 5 },
+        { "name": "English Breakfast", "kind": "black tea", "ingredients": null, "price": 5 },
+        { "name": "Green Tea (Jade Cloud)", "kind": "green tea", "ingredients": null, "price": 5 },
+        { "name": "Jasmine", "kind": "green tea", "ingredients": ["green tea", "jasmine"], "price": 5 },
+        { "name": "Custom Blend", "kind": "custom tea blend", "ingredients": null, "price": 5 },
+        { "name": "Pink Lemon Ginger", "kind": "botanical tea blend", "ingredients": null, "price": null, "available": false },
+        { "name": "Peach Hibiscus Green", "kind": "botanical tea blend", "ingredients": null, "price": null, "available": false },
+        { "name": "Crimson Revive", "kind": "lemonade-based tea infusion", "ingredients": ["dried fruit", "ginger"], "price": null, "available": false },
+        { "name": "Midnight Bloom", "kind": "lemonade-based tea infusion", "ingredients": ["dried fruit", "ginger"], "price": null, "available": false },
+        { "name": "Golden Hour", "kind": "lemonade-based tea infusion", "ingredients": ["dried fruit", "ginger"], "price": null, "available": false }
+      ]
+    },
+    {
+      "id": "no-caffeine",
+      "name": "No caffeine",
+      "kind": "caffeine-free drink",
+      "intro": "For the afternoon, the kids, or anyone skipping caffeine.",
+      "items": [
+        { "name": "Livin' Like It's Golden", "kind": "caffeine-free golden latte", "ingredients": ["turmeric and spices", "steamed milk", "light foam"], "price": 6, "from": true },
+        { "name": "Immunity Shot", "kind": "fresh juice shot", "ingredients": ["pineapple", "cucumber", "apple", "celery", "lemon", "ginger"], "price": 4.75, "from": true },
+        { "name": "Hot Chocolate", "ingredients": ["mocha", "white mocha", "vanilla", "steamed milk"], "price": 4.5, "from": true },
+        { "name": "Apple Juice", "plain": true, "ingredients": null, "price": 4.5 },
+        { "name": "Bottled Water", "plain": true, "ingredients": null, "price": 4.5 }
+      ]
+    },
+    {
+      "id": "food",
+      "name": "Food",
+      "kind": "food",
+      "intro": "Sandwiches, wings and pastries, made for a long stay.",
+      "items": [
+        { "name": "Westside Wings", "kind": "plate of chicken wings", "ingredients": null, "price": 12 },
+        { "name": "Chicken Pesto Situation", "kind": "croissant sandwich", "ingredients": ["chicken breast", "pesto", "sun-dried tomatoes", "provolone", "balsamic glaze"], "price": 10.63 },
+        { "name": "Bodega Sandwich", "sentence": "Bodega Sandwich is a sandwich on your choice of bread, meat and cheese, finished with pepper jelly, $10.00.", "ingredients": null, "price": 10 },
+        { "name": "Bird & Berry", "kind": "croissant sandwich", "ingredients": ["chicken", "cranberries", "pecans", "honey mustard"], "price": 8.5 },
+        { "name": "Sandwich Pocket", "kind": "pre-packaged sandwich", "ingredients": null, "price": 8.5 },
+        { "name": "Grilled Cheese", "kind": "croissant grilled cheese", "ingredients": ["cheddar", "American", "provolone", "pepper jack"], "price": 6.5 },
+        { "name": "Fries", "plain": true, "ingredients": null, "price": 6 },
+        { "name": "A la carte", "plain": true, "ingredients": null, "price": 6 },
+        { "name": "Egg Bites", "plain": true, "ingredients": null, "price": 5.75 },
+        { "name": "Danish", "kind": "pastry", "ingredients": ["puff pastry", "cream cheese", "fruit"], "price": 4.75, "from": true },
+        { "name": "Muffin", "plain": true, "ingredients": null, "price": 4.75 },
+        { "name": "Croissant", "plain": true, "ingredients": null, "price": 4.5, "from": true },
+        { "name": "Skinny Pop", "plain": true, "ingredients": null, "price": 3.5 },
+        { "name": "Trail Mix", "plain": true, "ingredients": null, "price": 2.75 },
+        { "name": "Side Meat", "plain": true, "ingredients": null, "price": 1.25, "from": true },
+        { "name": "Cookie", "plain": true, "ingredients": null, "price": null, "available": false },
+        { "name": "Green Light", "plain": true, "ingredients": null, "price": null, "available": false }
+      ]
+    }
+  ],
+  "options": {
+    "milk": "Whole milk is standard. Oat milk is used in Bre's Cinnamon Chai Latte and can be asked for in other drinks; choose a milk when you order ahead on Square, or ask at the counter.",
+    "syrups": "Syrups are made in house. Classic lattes and lemonades take a syrup of your choice, and signature drinks come with their own.",
+    "sizes": "A price marked “from” is the starting price, before size, milk or add-ons."
+  },
+  "allergens": "Drinks and food are made in one shared space that handles milk, eggs, wheat and nuts, including pecans and coconut. Tell the barista about any allergy before you order."
+}

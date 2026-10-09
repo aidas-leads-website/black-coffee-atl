@@ -1,0 +1,133 @@
+{
+  "_help": "Write {hours} where the opening hours belong; it is filled in from lib/site.ts. Each answer must be 50 words or fewer and name Black Coffee ATL and Capitol View, so it stands alone when quoted. The FAQ page and its structured data both read this file.",
+  "groups": [
+    {
+      "id": "visiting",
+      "name": "Visiting",
+      "items": [
+        {
+          "q": "Where is Black Coffee ATL?",
+          "a": "Black Coffee ATL is inside The Vivian at 1246 Allene Ave SW, Atlanta, GA 30310, on the Atlanta BeltLine's Westside extension in Capitol View. Look for the white brick storefront with rainbow-painted stairs."
+        },
+        {
+          "q": "What are Black Coffee ATL's hours?",
+          "a": "Black Coffee ATL in Capitol View is open {hours}, inside The Vivian on the Atlanta BeltLine's Westside extension."
+        },
+        {
+          "q": "Is Black Coffee ATL on the Atlanta BeltLine?",
+          "a": "Yes. Black Coffee ATL is inside The Vivian at 1246 Allene Ave SW, beside the Atlanta BeltLine's Westside extension in Capitol View, so you can walk or cycle to the shop from the trail."
+        },
+        {
+          "q": "Is there parking at Black Coffee ATL?",
+          "a": "Yes. Black Coffee ATL customers get two hours of free parking at The Vivian in Capitol View. Ask at the counter to validate your parking before you leave."
+        },
+        {
+          "q": "Does Black Coffee ATL have WiFi?",
+          "a": "Yes. Black Coffee ATL in Capitol View has free WiFi for customers, and the shop on the BeltLine's Westside extension is a regular workspace for remote workers and students."
+        },
+        {
+          "q": "Can I work on a laptop at Black Coffee ATL?",
+          "a": "Yes. Black Coffee ATL in Capitol View is laptop-friendly, with free WiFi, indoor seating and a patio at The Vivian. Two hours of validated parking makes a work session easy."
+        },
+        {
+          "q": "Is Black Coffee ATL dog-friendly?",
+          "a": "Yes. Black Coffee ATL in Capitol View is dog-friendly, so you can bring your dog when you visit the shop inside The Vivian on the BeltLine's Westside extension."
+        },
+        {
+          "q": "What is Black Coffee ATL's phone number?",
+          "a": "Call Black Coffee ATL in Capitol View on (404) 343-1565, or email westside@blackcoffeeatl.com. For events, the private hire form on blackcoffeeatl.com is the quickest route to the team."
+        }
+      ]
+    },
+    {
+      "id": "menu",
+      "name": "Menu and ordering",
+      "items": [
+        {
+          "q": "Can I order ahead from Black Coffee ATL?",
+          "a": "Yes. Black Coffee ATL takes orders ahead on its Square ordering site, blackcoffeeatl.square.site. Order online, then pick up at the counter inside The Vivian in Capitol View."
+        },
+        {
+          "q": "What are Black Coffee ATL's signature drinks?",
+          "a": "Black Coffee ATL's signature lattes include Marleaux, My Love, Lavender & Chill, Brown Sugar Baby and Dear Mama, from $7.00 to $8.00. Visitors to the Capitol View shop mention Marleaux, My Love and Lavender & Chill most often."
+        },
+        {
+          "q": "What is in the Marleaux, My Love latte?",
+          "a": "Marleaux, My Love is Black Coffee ATL's honey latte, made with honey, caramel, vanilla, espresso and milk, from $7.50. Reviewers of the Capitol View shop name it more than any other drink."
+        },
+        {
+          "q": "Does Black Coffee ATL serve matcha?",
+          "a": "Yes. Black Coffee ATL in Capitol View whisks ceremonial-grade matcha to order, with milk or lemonade, from $7.00. Flavours include The Blueprint with blueberry, Purple Kisses with lavender and The Cali Dream with mango."
+        },
+        {
+          "q": "Which coffee roasters does Black Coffee ATL use?",
+          "a": "Black Coffee ATL in Capitol View pours coffee from Devoción, Onyx and Counter Culture, served as espresso, batch brew and pour-over."
+        },
+        {
+          "q": "Does Black Coffee ATL have non-dairy milk?",
+          "a": "Yes. Black Coffee ATL in Capitol View makes drinks with oat milk. Choose a milk when you order ahead on Square, or ask the barista at the counter."
+        },
+        {
+          "q": "Does Black Coffee ATL have caffeine-free drinks?",
+          "a": "Yes. Black Coffee ATL in Capitol View serves caffeine-free drinks including the Livin' Like It's Golden turmeric latte, hot chocolate, an immunity shot, and herbal teas such as chamomile, peppermint and blueberry hibiscus."
+        },
+        {
+          "q": "Does Black Coffee ATL serve food?",
+          "a": "Yes. Black Coffee ATL in Capitol View serves Westside Wings, sandwiches such as the Chicken Pesto Situation and Bird & Berry, a croissant grilled cheese, egg bites and pastries, priced from $1.25 to $12.00."
+        },
+        {
+          "q": "How much does a coffee cost at Black Coffee ATL?",
+          "a": "At Black Coffee ATL in Capitol View, drip coffee is $3.50, espresso is $3.75, a latte starts at $6.00 and signature lattes cost $7.00 to $8.00 before size and milk options."
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "name": "About the shop",
+      "items": [
+        {
+          "q": "Who owns Black Coffee ATL?",
+          "a": "Black Coffee ATL is owned by its founder, Carl Northrop. He started it as a pop-up, opened the first shop in Castleberry Hill in December 2021 and moved it to The Vivian in Capitol View in October 2023."
+        },
+        {
+          "q": "Is Black Coffee ATL Black-owned?",
+          "a": "Yes. Black Coffee ATL is a Black-owned specialty coffee shop and event space founded by Carl Northrop, now inside The Vivian in Capitol View on the Atlanta BeltLine's Westside extension."
+        },
+        {
+          "q": "Is Black Coffee ATL LGBTQ-friendly?",
+          "a": "Yes. Black Coffee ATL in Capitol View is LGBTQ-friendly and welcomes everyone at its shop inside The Vivian on the Atlanta BeltLine's Westside extension."
+        },
+        {
+          "q": "Is Black Coffee ATL still in Castleberry Hill?",
+          "a": "No. Black Coffee ATL's first shop, at 131 Walker St SW in Castleberry Hill, closed in 2023 at the end of its lease. The shop is now at 1246 Allene Ave SW in Capitol View."
+        },
+        {
+          "q": "What does “Come for the coffee. Stay for the culture.” mean?",
+          "a": "It is Black Coffee ATL's tagline: specialty coffee first, then the culture around it, from Atlanta art on the walls to a hand-picked hip-hop and R&B playlist at the shop in Capitol View."
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "name": "Events and art",
+      "items": [
+        {
+          "q": "Can I rent Black Coffee ATL for a private event?",
+          "a": "Yes. Black Coffee ATL hires out its shop inside The Vivian in Capitol View for pop-ups, listening parties, brand activations and community gatherings. Send your date and guest count through the private hire form for availability and a quote."
+        },
+        {
+          "q": "How do I book an event at Black Coffee ATL?",
+          "a": "Fill in the form on Black Coffee ATL's private hire page with your date, guest count and type of event. The team at the Capitol View shop replies by email with availability and pricing."
+        },
+        {
+          "q": "Can artists show work at Black Coffee ATL?",
+          "a": "Yes. Black Coffee ATL in Capitol View shows rotating work by Atlanta artists, curated in-house. Artists can email westside@blackcoffeeatl.com with a portfolio link to be considered for a future show."
+        }
+      ]
+    }
+  ],
+  "disambiguation": {
+    "q": "Is Black Coffee ATL the same as The Black Coffee Company?",
+    "a": "No. Black Coffee ATL is Carl Northrop's coffee shop and event space at 1246 Allene Ave SW in Capitol View. The Black Coffee Company, also called Black Coffee Atlanta, is a separate business on Jonesboro Rd SE."
+  }
+}
