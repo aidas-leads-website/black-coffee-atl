@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import { track as vercelTrack } from '@vercel/analytics'
 
 declare global {
   interface Window {
@@ -11,9 +12,13 @@ declare global {
   }
 }
 
-/** F10: one place that reports order, call, directions and form events to whichever analytics is loaded. */
+/**
+ * F10: one place that reports order, call, directions and form events. They go to Vercel Web Analytics,
+ * and also to Plausible, gtag or dataLayer if any of those is loaded.
+ */
 export function track(event: string, props: Record<string, string> = {}) {
   try {
+    vercelTrack(event, props)
     window.plausible?.(event, { props })
     window.gtag?.('event', event, props)
     window.dataLayer?.push({ event, ...props })

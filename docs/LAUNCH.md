@@ -20,13 +20,18 @@ Set these in the host's project settings, for the production environment.
 | `RESEND_API_KEY` | **Yes, for the form** | An API key from resend.com |
 | `INQUIRY_FROM` | **Yes, for the form** | An address on a domain verified in Resend, such as `Black Coffee ATL website <inquiries@blackcoffeeatl.com>` |
 | `INQUIRY_TO` | Optional | Where inquiries go. Default `westside@blackcoffeeatl.com` |
-| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Recommended | `blackcoffeeatl.com`, after adding the site in Plausible |
+| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Optional | Only if you want Plausible as well as Vercel Analytics |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Recommended | The token from Google Search Console's HTML-tag method |
 | `NEXT_PUBLIC_BING_SITE_VERIFICATION` | Recommended | The token from Bing Webmaster Tools |
 | `NEXT_PUBLIC_GOOGLE_MAPS_STATIC_KEY` | Optional | A Maps Static API key restricted to the site's domain. Without it, Visit shows a drawn location card |
 
 Variables starting `NEXT_PUBLIC_` are baked in at build time, so redeploy after changing them. A production build without
 the Resend variables prints a warning but still succeeds.
+
+**Vercel Web Analytics:** the code is already in place. Switch it on in the Vercel dashboard under the project's
+**Analytics** tab, then redeploy. Page views work on every plan. The custom events (Order, Call, Directions and inquiry
+submissions) appear under **Events**, which needs a Pro or Enterprise plan. On the Hobby plan only page views are recorded.
+Analytics only runs on Vercel deployments; on another host the component does nothing.
 
 **Resend setup:**
 
@@ -92,7 +97,8 @@ Until all four steps are done, the form tells visitors to email or call instead.
 - **At 30 days:**
   - Review Core Web Vitals field data in Search Console. The target at the 75th percentile is LCP 2.5 s or less, INP
     200 ms or less and CLS 0.1 or less.
-  - Count taps on Order, Call and Directions in analytics, and inquiries per month.
+  - In Vercel Analytics, under **Events**, count `order`, `call`, `directions` and `inquiry_submit` per month. These are
+    the baselines for the goals in the brief.
 - If field LCP misses its target, the first lever is `display: 'optional'` for Archivo in `app/layout.tsx`. It saves
   about 0.3 to 0.6 s, but first-time visitors on slow connections see the fallback font.
 

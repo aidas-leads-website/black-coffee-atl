@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Archivo, Bodoni_Moda } from 'next/font/google'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/next'
 import { SITE_URL, INDEXABLE, business } from '@/lib/site'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -86,6 +87,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <ActionBar />
         <SiteEffects />
+        {/* Vercel Web Analytics: page views on every route, plus the custom events sent by track(). */}
+        <Analytics />
         {plausible ? (
           <Script defer data-domain={plausible} src="https://plausible.io/js/script.tagged-events.js" strategy="afterInteractive" />
         ) : null}

@@ -65,8 +65,11 @@ rate-limits each IP address to 5 inquiries an hour, per server instance, then em
 The form works without JavaScript. If email is not configured or the send fails, it tells the visitor to email or call
 instead.
 
-**Analytics.** Links with `data-track="order|call|directions"` and successful form submissions are reported through
-`track()` in `components/SiteEffects.tsx`. It sends to Plausible, `gtag` or `dataLayer`, whichever is loaded.
+**Analytics.** Vercel Web Analytics (`@vercel/analytics`) is mounted in `app/layout.tsx` and counts page views on every
+route, including client-side navigations. Links with `data-track="order|call|directions"` and successful form submissions
+(`inquiry_submit`) are reported through `track()` in `components/SiteEffects.tsx`. It sends custom events to Vercel, and
+also to Plausible, `gtag` or `dataLayer` if one of those is loaded. Each event carries `page` and `label` properties. The
+script is served from the site's own domain (`/_vercel/insights`), so the CSP needs no extra origin.
 
 ## What `npm run verify` enforces
 
